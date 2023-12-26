@@ -11,7 +11,7 @@ app.use(express.json());
 
 
 const dbPassword = process.env.MONGODB_PASSWORD;
-const dbURI = `mongodb+srv://hshimanshusingh001:${encodeURIComponent(dbPassword)}@cluster0.ubjiaqm.mongodb.net/todoapp?retryWrites=true&w=majority`;
+const dbURI = `mongodb+srv://hshimanshusingh001:LKphI2HH1heZ8ACq@cluster0.ubjiaqm.mongodb.net/todoapp?retryWrites=true&w=majority`;
 
 
 
@@ -35,6 +35,10 @@ const todoSchema = new mongoose.Schema({
 const Todo = mongoose.model('Todo', todoSchema);
 
 // Routes
+
+app.get('/', (req, res) => {
+  res.send('Hello, this is the root path!');
+});
 app.get('/api/todos', async (req, res) => {
   try {
     const todos = await Todo.find();
